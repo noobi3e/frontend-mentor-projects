@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// font-variables
+:root {
+  --font: 'Lora', serif;
+  --font-sans-serif: 'Montserrat', sans-serif;
+
+  --background: #ffffff;
+  --text: #2d2d2d;
+
+  --crl-purple: #a746ee;
+  --crl-purple-l: #e7cffa;
+
+  --crl-gry: #eee;
+  --crl-drk-gry: #969696;
+  --crl-inp: #f6f6f6;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px | 10/16 * 100;
+  box-sizing: border-box;
+
+  @media (max-width: 650px) {
+    font-size: 55%;
+  }
+}
+
+body {
+  font-family: var(--font);
+  background: var(--background);
+  color: var(--text);
+  font-size: 1.6rem;
+}
+
+#root {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+.dictionary-container {
+  width: 60vw;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+
+  @media (max-width: 1100px) {
+    width: 80vw;
+  }
+
+  @media (max-width: 900px) {
+    width: 100vw;
+    padding: 1.5rem 3rem;
+  }
+}
+
+.dic {
+  &__output {
+    display: flex;
+    align-items: center;
+    padding: 3rem 0;
+    justify-content: space-between;
+
+    h1 {
+      display: flex;
+      font-weight: 600;
+      font-size: 6rem;
+      flex-direction: column;
+      gap: 1rem;
+
+      .latin {
+        font-size: 2.4rem;
+        font-family: var(--font-sans-serif);
+        color: var(--crl-purple);
+        font-weight: 500;
+      }
+    }
+
+    button {
+      background: var(--crl-purple-l);
+
+      svg {
+        fill: var(--crl-purple);
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem 0;
+  }
+
+  &__top {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__search {
+    width: 100%;
+    position: relative;
+
+    button {
+      position: absolute;
+      top: 50%;
+      right: 1%;
+      transform: translateY(-50%);
+
+      svg {
+        width: 3rem;
+        height: 3rem;
+        fill: var(--crl-purple);
+      }
+    }
+
+    input {
+      width: 100%;
+      display: block;
+      padding: 1.5rem 2rem;
+      font-size: 2rem;
+      font-family: inherit;
+      color: inherit;
+      border: none;
+      font-weight: 600;
+      outline: none;
+      background: var(--crl-inp);
+      border-radius: 1.5rem;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    div.line {
+      height: 3.5rem;
+      width: 2px;
+      background: var(--crl-gry);
+    }
+
+    select {
+      padding: 1rem 0.5rem;
+      font-size: 1.6rem;
+      background: none;
+      outline: none;
+      border: none;
+      font-weight: 600;
+      color: inherit;
+      font-family: var(--font);
+
+      .options {
+        font-weight: 500;
+        color: inherit;
+        border: none;
+        color: inherit;
+        &:nth-child(1) {
+          font-family: 'Lora', serif;
+        }
+
+        &:nth-child(2) {
+          font-family: 'Montserrat', sans-serif;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    width: 5rem;
+    aspect-ratio: 1/1;
+    fill: var(--text);
+  }
+}
+
+main {
+  .line {
+    width: 100%;
+    margin: 3rem 0;
+    margin-top: 4rem;
+    height: 2px;
+    background: var(--crl-gry);
+  }
+
+  .credits {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    p {
+      font-weight: 600;
+      color: var(--crl-drk-gry) !important;
+      font-size: 2rem;
+      text-transform: capitalize;
+    }
+    a {
+      color: inherit;
+    }
+  }
+
+  section {
+    .list {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      p.synonm {
+        margin-top: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--crl-drk-gry) !important;
+        font-size: 2rem;
+
+        span {
+          margin-left: 2.5rem;
+          color: var(--crl-purple);
+        }
+      }
+
+      p.head {
+        // font-style: italic;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        color: var(--crl-drk-gry) !important;
+        font-weight: 500;
+      }
+
+      li {
+        font-size: 1.8rem;
+        margin-left: 4rem;
+
+        @media (max-width: 650px) {
+          margin-left: 1.5rem;
+        }
+      }
+    }
+
+    .noun {
+      font-size: 2.4rem;
+      background: var(--background);
+      padding-right: 2rem;
+      position: relative;
+      z-index: 10;
+      font-weight: 800;
+      font-style: italic;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: -1;
+        transform: translateY(-50%);
+        width: 90%;
+        height: 2px;
+        background: var(--crl-gry);
+
+        @media (max-width: 1100px) {
+          width: 85%;
+        }
+
+        @media (max-width: 900px) {
+          width: 87%;
+        }
+        @media (max-width: 550px) {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+svg.modeIcon {
+  fill: var(--text);
+  // fill: red;
+}
+
+.errtxt {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #d74a16 !important;
+}
+
+.noData {
+  text-align: center;
+  color: #d74a16 !important;
+  font-size: 4rem;
+  font-weight: 500;
+  margin-top: 5rem;
+}
+
+.loader {
+  margin: 10rem auto;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  margin: 0.75rem;
+  border: 0.75rem solid var(--crl-purple);
+  border-radius: 50%;
+  animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--crl-purple) transparent transparent transparent;
+}
+.loader div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.loader div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.loader div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
